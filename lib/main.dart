@@ -44,6 +44,7 @@ class _UserPanelState extends State<UserPanel> {
               width: double.infinity,
               height: 95,
               child: ListView.builder(
+                itemCount: _Profiles.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
@@ -51,9 +52,16 @@ class _UserPanelState extends State<UserPanel> {
                     width: 74,
                     child: Column(
                       children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage(
+                              'asseta/appBar/ProfileImages/-03stepanyan__03.jpeg'),
+                        ),
                         Text(
-                          'sfdsfsdf',
-                          style: TextStyle(color: Colors.black),
+                          _Profiles[index].name,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
                         )
                       ],
                     ),
