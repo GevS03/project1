@@ -10,7 +10,7 @@ class UserPanel extends StatefulWidget {
 }
 
 class _UserPanelState extends State<UserPanel> {
-  final _Profiles = <Profile>[
+  final profiles = <Profile>[
     Profile(name: 'Your story', hazStory: true, isLive: false),
     Profile(name: 'leeviahq', hazStory: false, isLive: true),
     Profile(name: 'ladyinblack', hazStory: true, isLive: true),
@@ -40,12 +40,12 @@ class _UserPanelState extends State<UserPanel> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          textTheme: TextTheme(
+          textTheme: const TextTheme(
               headlineMedium: TextStyle(
                   color: Colors.black,
                   fontSize: 14,
                   fontWeight: FontWeight.w400)),
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
               elevation: 0.2,
               backgroundColor: Colors.white,
               toolbarHeight: 160)),
@@ -57,42 +57,42 @@ class _UserPanelState extends State<UserPanel> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SvgPicture.asset('assets/appBar/logo.svg'),
-                  Padding(padding: EdgeInsets.only(left: 100)),
+                  const Padding(padding: EdgeInsets.only(left: 100)),
                   SvgPicture.asset('assets/appBar/add_not_send.svg'),
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(top: 50),
+                margin: const EdgeInsets.only(top: 50),
                 width: double.infinity,
                 height: 95,
                 child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
-                  itemCount: _Profiles.length,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: profiles.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.only(right: 10),
+                      margin: const EdgeInsets.only(right: 10),
                       height: 95,
                       width: 74,
                       child: Column(
                         children: [
-                          Container(
+                          SizedBox(
                             height: 66,
                             width: 66,
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
                                 Container(
-                                  child: _hazStory(_Profiles[index].hazStory),
+                                  child: _hazStory(profiles[index].hazStory),
                                 ),
-                                CircleAvatar(
+                                const CircleAvatar(
                                   backgroundColor: Colors.white,
                                   radius: 30.5,
                                 ),
                                 CircleAvatar(
                                   radius: 29,
                                   backgroundImage: AssetImage(
-                                      'assets/ProfileImages/${_Profiles[index].name}.jpeg'),
+                                      'assets/ProfileImages/${profiles[index].name}.jpeg'),
                                 ),
                                 Container(
                                   alignment: Alignment.bottomRight,
@@ -100,14 +100,14 @@ class _UserPanelState extends State<UserPanel> {
                                 ),
                                 Container(
                                   alignment: Alignment.bottomCenter,
-                                  child: _isLive(_Profiles[index].isLive),
+                                  child: _isLive(profiles[index].isLive),
                                 )
                               ],
                             ),
                           ),
-                          Padding(padding: EdgeInsets.only(top: 5)),
+                          const Padding(padding: EdgeInsets.only(top: 5)),
                           Text(
-                            _Profiles[index].name,
+                            profiles[index].name,
                             style: Theme.of(context).textTheme.headlineMedium,
                           )
                         ],
@@ -117,7 +117,7 @@ class _UserPanelState extends State<UserPanel> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 247, top: 32),
+                margin: const EdgeInsets.only(left: 247, top: 32),
                 child:
                     SvgPicture.asset('assets/ProfileImages/notification.svg'),
               )
