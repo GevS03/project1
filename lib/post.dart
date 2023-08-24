@@ -6,7 +6,7 @@ class Post {
   final String country;
   List<Image> pictures;
   String description;
-  String hashtags;
+  List<String> hashtags;
   int picturesNum;
 
   Post(

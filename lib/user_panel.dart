@@ -32,7 +32,7 @@ class _UserPanelState extends State<UserPanel> {
         ],
         picturesNum: 3,
         description: 'Tanks for downloading this freebie',
-        hashtags: '#freebie #instagram #figma')
+        hashtags: ['#freebie', '#instagram', '#figma'])
   ];
 
   List<Profile> profiles = [
@@ -356,15 +356,15 @@ class _UserPanelState extends State<UserPanel> {
                         'Liked by ',
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
-                      const Text(
-                        'leeviahq ',
+                      Text(
+                        profiles[3].name,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 13.5,
                             fontWeight: FontWeight.w500),
                       ),
                       Text(
-                        'and ',
+                        ' and ',
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const Text(
@@ -403,7 +403,7 @@ class _UserPanelState extends State<UserPanel> {
                     children: [
                       const Padding(padding: EdgeInsets.only(left: 10)),
                       Text(
-                        posts[index].hashtags,
+                        posts[index].hashtags.join(', '),
                         style: const TextStyle(
                             fontSize: 13.5,
                             color: Colors.blue,
@@ -466,11 +466,13 @@ class _UserPanelState extends State<UserPanel> {
                 icon: Column(
                   children: [
                     IconButton(
-                        iconSize: 20,
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/ProfileImages/profile1.jpeg',
-                        )),
+                      iconSize: 20,
+                      onPressed: () {},
+                      icon: CircleAvatar(
+                          backgroundImage: AssetImage(
+                        'assets/ProfileImages/profile1.jpeg',
+                      )),
+                    ),
                     SvgPicture.asset('assets/bottomNav/oval.svg')
                   ],
                 )),
