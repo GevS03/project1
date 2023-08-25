@@ -104,25 +104,6 @@ class _UserPanelState extends State<UserPanel> {
         appBar: AppBar(
           title: Stack(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SvgPicture.asset('assets/appBar/logo.svg'),
-                  const Padding(padding: EdgeInsets.only(left: 110)),
-                  IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset('assets/appBar/add.svg'),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset('assets/appBar/not.svg'),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset('assets/appBar/send.svg'),
-                  ),
-                ],
-              ),
               Container(
                 margin: const EdgeInsets.only(top: 50),
                 width: double.infinity,
@@ -178,15 +159,49 @@ class _UserPanelState extends State<UserPanel> {
                   },
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 234, top: 42),
-                child:
-                    SvgPicture.asset('assets/ProfileImages/notification.svg'),
-              )
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 5),
+                        child: SvgPicture.asset('assets/appBar/logo.svg'),
+                      ),
+                      Column(
+                        children: [
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset('assets/appBar/add.svg'),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset('assets/appBar/not.svg'),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon:
+                                    SvgPicture.asset('assets/appBar/send.svg'),
+                              )
+                            ],
+                          ),
+                          SvgPicture.asset(
+                              'assets/ProfileImages/notification.svg'),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
         ),
         body: ListView.builder(
+          physics: BouncingScrollPhysics(),
           itemCount: posts.length,
           itemBuilder: (context, index) {
             return Container(
@@ -260,9 +275,9 @@ class _UserPanelState extends State<UserPanel> {
                         },
                       ),
                     ),
-                    Positioned(
-                      top: 10,
-                      left: 365,
+                    Container(
+                      padding: EdgeInsets.only(top: 10, right: 10),
+                      alignment: Alignment.topRight,
                       child: Container(
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
@@ -358,7 +373,7 @@ class _UserPanelState extends State<UserPanel> {
                       ),
                       Text(
                         profiles[3].name,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 13.5,
                             fontWeight: FontWeight.w500),
@@ -421,60 +436,76 @@ class _UserPanelState extends State<UserPanel> {
           currentIndex: _selectedI,
           items: [
             BottomNavigationBarItem(
-                label: '',
-                icon: IconButton(
-                  alignment: Alignment.bottomCenter,
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/bottomNav/home.svg',
-                    width: 22,
-                    height: 21,
-                  ),
-                )),
+              label: '',
+              icon: IconButton(
+                alignment: Alignment.bottomCenter,
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  'assets/bottomNav/home.svg',
+                  width: 22,
+                  height: 21,
+                ),
+              ),
+            ),
             BottomNavigationBarItem(
                 label: '',
-                icon: IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/bottomNav/search.svg',
-                    width: 21,
-                    height: 22,
-                  ),
-                )),
-            BottomNavigationBarItem(
-                label: '',
-                icon: IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/bottomNav/reel.svg',
-                    width: 22,
-                    height: 22,
-                  ),
-                )),
-            BottomNavigationBarItem(
-                label: '',
-                icon: IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/bottomNav/shopping.svg',
-                    width: 20,
-                    height: 22,
-                  ),
-                )),
-            BottomNavigationBarItem(
-                label: '',
-                icon: Column(
-                  children: [
-                    IconButton(
-                      iconSize: 20,
-                      onPressed: () {},
-                      icon: CircleAvatar(
-                          backgroundImage: AssetImage(
-                        'assets/ProfileImages/profile1.jpeg',
-                      )),
+                icon: Container(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    alignment: Alignment.center,
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/bottomNav/search.svg',
+                      width: 21,
+                      height: 22,
                     ),
-                    SvgPicture.asset('assets/bottomNav/oval.svg')
-                  ],
+                  ),
+                )),
+            BottomNavigationBarItem(
+                label: '',
+                icon: Container(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    alignment: Alignment.center,
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/bottomNav/reel.svg',
+                      width: 22,
+                      height: 22,
+                    ),
+                  ),
+                )),
+            BottomNavigationBarItem(
+                label: '',
+                icon: Container(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    alignment: Alignment.center,
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/bottomNav/shopping.svg',
+                      width: 20,
+                      height: 22,
+                    ),
+                  ),
+                )),
+            BottomNavigationBarItem(
+                label: '',
+                icon: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    children: [
+                      IconButton(
+                        iconSize: 20,
+                        onPressed: () {},
+                        icon: const CircleAvatar(
+                            backgroundImage: AssetImage(
+                          'assets/ProfileImages/profile1.jpeg',
+                        )),
+                      ),
+                      SvgPicture.asset('assets/bottomNav/oval.svg')
+                    ],
+                  ),
                 )),
           ],
         ),
