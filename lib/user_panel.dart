@@ -167,7 +167,7 @@ class _UserPanelState extends State<UserPanel> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 5),
+                        margin: const EdgeInsets.only(top: 5),
                         child: SvgPicture.asset('assets/appBar/logo.svg'),
                       ),
                       Column(
@@ -201,7 +201,7 @@ class _UserPanelState extends State<UserPanel> {
           ),
         ),
         body: ListView.builder(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           itemCount: posts.length,
           itemBuilder: (context, index) {
             return Container(
@@ -276,7 +276,7 @@ class _UserPanelState extends State<UserPanel> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 10, right: 10),
+                      padding: const EdgeInsets.only(top: 10, right: 10),
                       alignment: Alignment.topRight,
                       child: Container(
                         alignment: Alignment.center,
