@@ -12,29 +12,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  List<Post> posts = [
-    Post(
-        accountName: 'pieroborgo',
-        city: 'Paris',
-        country: 'France',
-        pictures: [
-          Image.asset(
-            'assets/body/pictures/picture1.jpeg',
-            fit: BoxFit.fill,
-          ),
-          Image.asset(
-            'assets/body/pictures/picture2.jpeg',
-            fit: BoxFit.fill,
-          ),
-          Image.asset(
-            'assets/body/pictures/picture3.jpeg',
-            fit: BoxFit.fill,
-          ),
-        ],
-        picturesNum: 3,
-        description: 'Tanks for downloading this freebie',
-        hashtags: ['#freebie', '#instagram', '#figma'])
-  ];
+  List<Post> posts = [];
 
   int _selectedPictureI = 1;
 
@@ -46,6 +24,35 @@ class _BodyState extends State<Body> {
     } else {
       _selectedPictureC = Colors.grey;
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    posts.addAll([
+      Post(
+          accountName: 'pieroborgo',
+          city: 'Paris',
+          country: 'France',
+          pictures: [
+            Image.asset(
+              'assets/body/pictures/picture1.jpeg',
+              fit: BoxFit.fill,
+            ),
+            Image.asset(
+              'assets/body/pictures/picture2.jpeg',
+              fit: BoxFit.fill,
+            ),
+            Image.asset(
+              'assets/body/pictures/picture3.jpeg',
+              fit: BoxFit.fill,
+            ),
+          ],
+          picturesNum: 3,
+          description: 'Tanks for downloading this freebie',
+          hashtags: ['#freebie', '#instagram', '#figma'])
+    ]);
   }
 
   @override

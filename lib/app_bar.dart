@@ -3,16 +3,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project1/profile.dart';
 
 // ignore: must_be_immutable
-class InstaAppBar extends StatelessWidget {
-  InstaAppBar({super.key});
+class InstaAppBar extends StatefulWidget {
+  const InstaAppBar({super.key});
 
-  List<Profile> profiles = [
-    Profile(name: 'Your story', hazStory: true, isLive: false),
-    Profile(name: 'leeviahq', hazStory: false, isLive: true),
-    Profile(name: 'ladyinblack', hazStory: true, isLive: true),
-    Profile(name: 'beardman', hazStory: true, isLive: false),
-    Profile(name: 'parzivalthe', hazStory: false, isLive: false),
-  ];
+  @override
+  State<InstaAppBar> createState() => _InstaAppBarState();
+}
+
+class _InstaAppBarState extends State<InstaAppBar> {
+  List<Profile> profiles = [];
 
   _hazStory(bool story) {
     if (story) {
@@ -30,6 +29,19 @@ class InstaAppBar extends StatelessWidget {
     if (index == 0) {
       return SvgPicture.asset('assets/ProfileImages/add.svg');
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    profiles.addAll([
+      Profile(name: 'Your story', hazStory: true, isLive: false),
+      Profile(name: 'leeviahq', hazStory: false, isLive: true),
+      Profile(name: 'ladyinblack', hazStory: true, isLive: true),
+      Profile(name: 'beardman', hazStory: true, isLive: false),
+      Profile(name: 'parzivalthe', hazStory: false, isLive: false),
+    ]);
   }
 
   @override
