@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:project1/body/like_com_send.dart';
-import 'package:project1/body/liked_by.dart';
-import 'package:project1/post.dart';
+import 'package:project1/features/main_page/view/body/post.dart';
+import 'package:project1/features/main_page/view/body/like_com_send.dart';
+import 'package:project1/features/main_page/view/body/liked_by.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});

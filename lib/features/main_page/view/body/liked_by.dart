@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project1/profile.dart';
+import 'package:project1/features/main_page/view/body/profile.dart';
 
 // ignore: must_be_immutable
 class LikedBy extends StatelessWidget {
