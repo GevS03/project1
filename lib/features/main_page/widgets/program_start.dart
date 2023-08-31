@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LogoNots extends StatelessWidget {
-  const LogoNots({super.key});
+class ProgramStart extends StatelessWidget {
+  const ProgramStart({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

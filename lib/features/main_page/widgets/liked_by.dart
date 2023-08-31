@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:project1/features/main_page/view/body/profile.dart';
+import 'package:project1/models/insta_profiles/profile.dart';
 
-// ignore: must_be_immutable
 class LikedBy extends StatelessWidget {
-  LikedBy({super.key});
+  const LikedBy({
+    super.key,
+    required this.profiles,
+  });
 
-  List<Profile> profiles = [
-    Profile(name: 'Your story', hazStory: true, isLive: false),
-    Profile(name: 'leeviahq', hazStory: false, isLive: true),
-    Profile(name: 'ladyinblack', hazStory: true, isLive: true),
-    Profile(name: 'beardman', hazStory: true, isLive: false),
-    Profile(name: 'parzivalthe', hazStory: false, isLive: false),
-  ];
+  final List<Profile> profiles;
 
   @override
   Widget build(BuildContext context) {

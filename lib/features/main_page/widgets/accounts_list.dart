@@ -1,29 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:project1/features/main_page/view/body/profile.dart';
 
-class Stories extends StatefulWidget {
-  const Stories({super.key});
+class AccountsList extends StatelessWidget {
+  const AccountsList({super.key, required this.profiles});
 
-  @override
-  State<Stories> createState() => _StoriesState();
-}
-
-class _StoriesState extends State<Stories> {
-  List<Profile> profiles = [];
-
-  @override
-  void initState() {
-    super.initState();
-
-    profiles.addAll([
-      Profile(name: 'Your story', hazStory: true, isLive: false),
-      Profile(name: 'leeviahq', hazStory: false, isLive: true),
-      Profile(name: 'ladyinblack', hazStory: true, isLive: true),
-      Profile(name: 'beardman', hazStory: true, isLive: false),
-      Profile(name: 'parzivalthe', hazStory: false, isLive: false),
-    ]);
-  }
+  final List profiles;
 
   _hazStory(bool story) {
     if (story) {
